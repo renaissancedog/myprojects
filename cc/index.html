@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Budget Cookie Clicker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function() {
+          $("#nav").load("../nav.html");
+      });
+    </script>
+    <div id="nav"></div>
+    <main>
+      <div class="container">
+        <div class="cookiecolumn">
+          <h1>Cookie Clicker</h1>
+          <h2 id="cookie_counter"> Cookies: 0 </h2>
+          <h2 id="cps_counter"> CPS: 0 </h2>
+          <h3 id="total_cookies"> Total Cookies produced ever: 0 </h3>
+          <img id="name" src="cookie.png" alt="Click Me!" onclick="game.clicked()" onmousedown="return false" />
+          <br>
+          <br>
+        </div>
+        <div class="shop">
+          <button id="cursor_btn" class="shop" onclick="cursors.buy(game.cookies);">Cursor <span id="cursor-data" class="object-data"></span></button><br><br>
+          <button id="grandma_btn" class="shop" onclick="grandmas.buy(game.cookies);">Grandma <span id="grandma-data" class="object-data"></span></button><br><br>
+          <button id="farm_btn" class="shop" onclick="farms.buy(game.cookies)">Farm <span id="farm-data" class="object-data"></span></button><br><br>
+          <button id="mine_btn" class="shop" onclick="mines.buy(game.cookies)">Mine <span id="mine-data" class="object-data"></span></button><br><br>
+          <button id="factory_btn" class="shop" onclick="factories.buy(game.cookies)">Factory <span id="factory-data" class="object-data"></span></button><br><br>
+          <button id="bank_btn" class="shop" onclick="banks.buy(game.cookies)">Bank <span id="bank-data" class="object-data"></span></button><br><br>
+          <button id="temple_btn" class="shop" onclick="temples.buy(game.cookies)">Temple <span id="temple-data" class="object-data"></span></button><br><br>
+          <button id="wizard_btn" class="shop" onclick="wizards.buy(game.cookies)">Wizard Tower <span id="wizard-data" class="object-data"></span></button><br><br>
+          <button id="shipment_btn" class="shop" onclick="shipments.buy(game.cookies)">Shipment <span id="shipment-data" class="object-data"></span></button><br><br>
+          <button id="lab_btn" class="shop" onclick="labs.buy(game.cookies)">Alchemy Lab <span id="lab-data" class="object-data"></span></button><br><br>
+        </div>
+        <div class="shop">
+          <button id="portal_btn" class="shop" onclick="portals.buy(game.cookies);">Portal <span id="portals-data" class="object-data"></span></button><br><br>
+          <button id="time_btn" class="shop" onclick="timemachines.buy(game.cookies);">Time Machine <span id="timemachines-data" class="object-data"></span></button><br><br>
+          <button id="condenser_btn" class="shop" onclick="condensers.buy(game.cookies)">Antimatter Condenser <span id="condensers-data" class="object-data"></span></button><br><br>
+          <button id="prism_btn" class="shop" onclick="prisms.buy(game.cookies)">Prism <span id="prisms-data" class="object-data"></span></button><br><br>
+          <button id="chancemaker_btn" class="shop" onclick="chancemakers.buy(game.cookies)">Chancemaker <span id="chancemakers-data" class="object-data"></span></button><br><br>
+          <button id="fractal_btn" class="shop" onclick="fractals.buy(game.cookies)">Fractal Engine <span id="fractals-data" class="object-data"></span></button><br><br>
+          <button id="jsconsole_btn" class="shop" onclick="jsconsoles.buy(game.cookies)">Javascript Console <span id="jsconsoles-data" class="object-data"></span></button><br><br>
+          <button id="idleverse_btn" class="shop" onclick="idleverses.buy(game.cookies)">Idleverse <span id="idleverses-data" class="object-data"></span></button><br><br>
+          <button id="cortex_btn" class="shop" onclick="cortexbakers.buy(game.cookies)">Cortex Baker <span id="cortexbakers-data" class="object-data"></span></button><br><br>
+          <button id="you_btn" class="shop" onclick="you.buy(game.cookies)">You <span id="you-data" class="object-data"></span></button><br><br>
+        </div>
+        <div class="shop">
+          <p>Upgrades coming soon!</p>
+        </div>
+        <div class="shop">
+          <button id="exportButton" onclick="game.exportSave()">Copy a save export</button><br><br>
+          <button id="importButton" onclick="game.importSave()">Import a save</button>
+        </div>
+      </div>
+    </main>
+  </body>
+  <footer>
+    <p>&copy; 2024 Nobody. No rights reserved. This code is very useless and therefore free.</p>
+    <p id=version>Version 2.1.6</p>
+    <script src="main.js"></script>
+  </footer>
+</html>
