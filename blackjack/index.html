@@ -12,10 +12,15 @@
       });
     </script><div id="nav"></div>
     <h1>Blackjack</h1>
-    <p>Cards: </p>
-    <p>Sum: </p>
-    <button onclick="start()">Start Game</button><br>
-    <button onclick="game.deal()">New Card</button>
+    <p id="cards">Cards: </p>
+    <p id="sum">Sum: </p>
+    <p id="dealerCard">Dealer's Cards: </p>
+    <p id="dealerScore">Dealer's Score: </p>
+    <button onclick="start()">Start New Game</button><br><br>
+    <button onclick="game.deal()">Hit</button><br><br>
+    <button onclick="game.stand()">Stand</button>
+    <p id="money"></p>
     <script src="main.js"></script>
+    <p>Cards are shuffled every 5 rounds.</p>
   </body>
 </html>
