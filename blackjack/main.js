@@ -47,6 +47,10 @@ class Game {
     cards.splice(c,1) 
   }
   reset() {
+    if (money<=0) {
+      alert("You lost all your money! Here's a $200 bailout.")
+      money+=200
+    }
     sum=0
     q("cards").innerHTML="Cards: "
     aces=0
