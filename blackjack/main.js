@@ -14,6 +14,9 @@ class Game {
     let c=getRandomInt(0,cards.length)
     q("cards").innerHTML += cards[c]+" "
     sum+=val(cards[c])
+    if (val(cards[c])==11) {
+      aces++
+    }
     playerCards.push(cards[c])
     cards.splice(c,1) 
   
@@ -51,8 +54,6 @@ class Game {
     playerCards=[]
     dealerCards=[]
     rounds++;
-    console.log(rounds)
-    console.log(cards)
     if (rounds%5==0) {
       cards=[...allCards]
     }
@@ -68,11 +69,13 @@ class Game {
       let c=getRandomInt(0,cards.length)
       dealerScore+=val(cards[c])
       dealerCards.push(cards[c])
+      if (val(cards[c])==11){
+        dealerAce++
+      }
       cards.splice(c,1) 
-      while (dealerAce>0&&dealerScore21){
+      while (dealerAce>0&&(dealerScore>21||dealerScore<sum)){
         dealerAce--;
         dealerScore-=10;
-        q("sum").innerHTML = "Sum: "+sum
       }
     }
     alert("Dealer's Cards: "+dealerCards)
@@ -99,14 +102,14 @@ class Game {
   update() {
     q("money").innerHTML="Money: $"+money
     q("sum").innerHTML = "Sum: "+sum
+    q("rounds").innerHTML = "Rounds: "+rounds
   }
 }
 function start() {
   game=new Game()
+  game.reset()
+  game.rounds=0
   alert("New game!")
-  game.deal()
-  game.deal()
-  game.dealerDeal();
 }
 function getRandomInt(min, max) {
   const minCeiled = Math.ceil(min);
@@ -119,7 +122,6 @@ function q(id){
 function val(c) {
   let ch=c.charAt(0)
   if (ch=='A'){
-    aces++;
     return 11;
   }
   if (ch=='J'||ch=='Q'||ch=='K'){
