@@ -14,26 +14,28 @@
     <h1>Blackjack</h1>
     <div class="container">
       <div class="column">
+      <h3 id="rounds"></h3>
       <p id="cards">Cards: </p>
       <p id="sum">Sum: </p>
       <p id="dealerCard">Dealer's Cards: </p>
       <p id="money"></p>
-      <p id="rounds"></p>
       <button onclick="start()">Start New Game</button>
       <button onclick="game.deal()">Hit</button>
       <button onclick="game.stand()">Stand</button>
       <button onclick="game.betamt()">Change Bet Amount</button>
+      <h2>Game Imformation</h2>
+      <p id="roundinfo"></p>
       <p id="info"></p>
       <p id="info2"></p>
       <p id="info3"></p>
       </div>
       <div class="column">
-        <select>
+        <!-- <select>
           <option>Volvo</option>
-        </select>
-        <h2>Information</h2>
-      <p>This is 1-deck Blackjack. Dealer hits on soft 17. Cards are shuffled every 5 rounds.</p>
-      <p>Getting extra on a Blackjack has not been implemented yet.</p>
+        </select> -->
+        <h2>Setup</h2>
+        <p>Cards are written with their rank, then suit. For example, the 10 of hearts is 10H.</p>
+        <p>This is 1-deck Blackjack. Dealer hits on soft 17. Cards are shuffled every 5 rounds.</p>
       </div>
     </div>
   </body>
