@@ -8,7 +8,8 @@ let playerCards=[]
 let dealerCards=[]
 let dealerScore=0
 let dealerAce=0
-let aces=0;
+let aces=0
+let betamt=10
 class Game {
   deal() {
     let c=getRandomInt(0,cards.length)
@@ -26,9 +27,10 @@ class Game {
       sum-=10;
     }
     if (sum>21){
-      alert("You drew a "+playerCards[playerCards.length-1])
-      alert("You Lost!")
-      money-=10
+      q("info").innerHTML=("You drew a "+playerCards[playerCards.length-1]+". You lost!")
+      q("info2").innerHTML=""
+      q("info3").innerHTML=""
+      money-=betamt
       this.reset()
     }
     this.update()
@@ -82,22 +84,22 @@ class Game {
         dealerScore-=10;
       }
     }
-    alert("Dealer's Cards: "+dealerCards)
-    alert("Dealer's Score: "+dealerScore)
+    q("info").innerHTML=("Dealer's Cards: "+dealerCards)
+    q("info2").innerHTML=("Dealer's Score: "+dealerScore)
     if (dealerScore>21) {
-      alert("You Won!")
-      money+=10
+      q("info3").innerHTML="You Won!"
+      money+=betamt
     } else {
       if (dealerScore>sum){
-        alert("You Lost!")
-        money-=10
+        q("info3").innerHTML="You Lost!"
+        money-=betamt
       }
       if (dealerScore<sum){
-        alert("You Won!")
-        money+=10
+        q("info3").innerHTML="You Won!"
+        money+=betamt
       }
       if (dealerScore==sum){
-        alert("Draw")
+        q("info3").innerHTML="Draw"
       }
     }
     this.update()
@@ -108,12 +110,17 @@ class Game {
     q("sum").innerHTML = "Sum: "+sum
     q("rounds").innerHTML = "Rounds: "+rounds
   }
+  betamt() {
+    betamt=prompt("Enter Bet Amount")
+    while (betamt<0) {
+      betamt=prompt("Please enter a nonnegative bet amount.")
+    }
+  }
 }
 function start() {
   game=new Game()
   game.reset()
   game.rounds=0
-  alert("New game!")
 }
 function getRandomInt(min, max) {
   const minCeiled = Math.ceil(min);

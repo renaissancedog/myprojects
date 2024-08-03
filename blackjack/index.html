@@ -12,17 +12,30 @@
       });
     </script><div id="nav"></div>
     <h1>Blackjack</h1>
-    <p id="cards">Cards: </p>
-    <p id="sum">Sum: </p>
-    <p id="dealerCard">Dealer's Cards: </p>
-    <p id="dealerScore">Dealer's Score: </p>
-    <button onclick="start()">Start New Game</button>
-    <button onclick="game.deal()">Hit</button>
-    <button onclick="game.stand()">Stand</button>
-    <p id="money"></p>
-    <p id="rounds"></p>
-    <script src="main.js"></script>
-    <h2>Information</h2>
-    <p>This is 1-deck Blackjack. Dealer hits on soft 17. Cards are shuffled every 5 rounds.</p>
+    <div class="container">
+      <div class="column">
+      <p id="cards">Cards: </p>
+      <p id="sum">Sum: </p>
+      <p id="dealerCard">Dealer's Cards: </p>
+      <p id="money"></p>
+      <p id="rounds"></p>
+      <button onclick="start()">Start New Game</button>
+      <button onclick="game.deal()">Hit</button>
+      <button onclick="game.stand()">Stand</button>
+      <button onclick="game.betamt()">Change Bet Amount</button>
+      <p id="info"></p>
+      <p id="info2"></p>
+      <p id="info3"></p>
+      </div>
+      <div class="column">
+        <select>
+          <option>Volvo</option>
+        </select>
+        <h2>Information</h2>
+      <p>This is 1-deck Blackjack. Dealer hits on soft 17. Cards are shuffled every 5 rounds.</p>
+      <p>Getting extra on a Blackjack has not been implemented yet.</p>
+      </div>
+    </div>
   </body>
+  <script src="main.js"></script>
 </html>
