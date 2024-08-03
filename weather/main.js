@@ -41,3 +41,19 @@ function coords(lat,long) {
       }
   });
 }
+function success(test) {
+  alert(test.coords.latitude+", "+test.coords.longitude)
+  console.log(test.coords)
+}
+function error(test){
+  alert("Unable to retrieve your location")
+  console.log("error")
+}
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+function loc() {
+  navigator.geolocation.getCurrentPosition(success, error, options); 
+}
