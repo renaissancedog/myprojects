@@ -31,6 +31,18 @@
             <input id="longitude"><br>
             <input type="submit" value="Submit">
           </form>
+          <script>
+            document.getElementById('latlong').addEventListener('submit', function(event) {
+                event.preventDefault();
+                let latitude = document.getElementById('latitude').value;
+                let longitude= document.getElementById('longitude').value;
+                if (Math.abs(latitude)>90||Math.abs(longitude)>180) {
+                  alert("Value too large!")
+                } else {
+                  console.log(coords(latitude,longitude))
+                }
+            });
+          </script> 
         </div>
       </div>
       <p>All times are in local time.</p>
