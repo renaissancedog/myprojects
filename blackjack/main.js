@@ -77,7 +77,7 @@ class Game {
         dealerAce++
       }
       cards.splice(c,1) 
-      while (dealerAce>0&&(dealerScore>21||dealerScore<sum)){
+      while (dealerAce>0&&(dealerScore>21||dealerScore<sum||dealerScore==17)){
         dealerAce--;
         dealerScore-=10;
       }
