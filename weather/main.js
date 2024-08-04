@@ -27,13 +27,14 @@ function draw(result) {
   });
 }
 function coords(lat,long) {
-  var link='https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+long+'&hourly=temperature_2m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch'
+  var link='https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+long+'&hourly=temperature_2m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=auto'
   $.ajax({
       method: 'GET',
       url: link, 
       contentType: 'application/json',
       success: function(result) {
           console.log(result);
+          console.log(link);
           draw(result);
       },
       error: function ajaxError(jqXHR) {
