@@ -12,7 +12,8 @@ const info=(
     </ul>
   </div>
 )
-ReactDOM.render(info,q("root"))
+const root=ReactDOM.createRoot(q("root"))
+root.render(info)
 function q(id) {
   return document.getElementById(id)
 }
