@@ -1,5 +1,11 @@
 function draw(result) {
-  const ctx = document.getElementById('myChart');
+  const canvasToRemove = document.getElementById('canvas');
+  if (canvasToRemove) {
+      canvasToRemove.remove();
+  }
+  let canvas=document.createElement("canvas");
+  canvas.id="canvas"
+  document.getElementById("myDiv").appendChild(canvas)
   lbls=[];lblset=[];
   result.hourly.time.forEach(element => {
     lbls.push(element)
@@ -7,7 +13,7 @@ function draw(result) {
   result.hourly.temperature_2m.forEach(element => {
     lblset.push(element)
   });
-  new Chart(ctx, {
+  const c=new Chart(canvas, {
     type: 'line',
     data: {
       labels: lbls, 
@@ -25,6 +31,7 @@ function draw(result) {
       }
     }
   });
+  ctx.append(c)
 }
 function coords(lat,long) {
   var link='https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+long+'&hourly=temperature_2m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=auto'
